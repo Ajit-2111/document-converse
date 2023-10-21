@@ -101,20 +101,10 @@ def main():
         handle_userinput(user_question)
 
     with st.sidebar:
-        api_key_input = st.empty()
+        api_key_input = st.text_input('Enter Your OPENAI API key',placeholder='API KEY') 
+        os.environ["OPENAI_API_KEY"] = api_key_value
 
-        if os.path.isfile('./secret.txt'):
-            with open('secret.txt','r') as file:
-                api_key_value = file.readline()
-                os.environ["OPENAI_API_KEY"] = api_key_value
 
-            filled_api_key_input = api_key_input.text_input('Enter Your OPENAI API key',value=api_key_value,placeholder='FILLED API KEY')
-        elif new_api_key_input:=api_key_input.text_input('Enter Your OPENAI API key',placeholder='API KEY') :
-            if is_openai_api_key_valid(new_api_key_input):
-                with open("secret.txt","w") as file:
-                    file.write(new_api_key_input)
-            else:
-                st.error("Enter valid OPENAI API Key")
         st.subheader("Your documents")
         user_docs = st.file_uploader(
             "Upload your PDFs here and click on 'Process'", accept_multiple_files=True)
