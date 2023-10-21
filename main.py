@@ -103,7 +103,7 @@ def main():
     with st.sidebar:
         api_key_input = st.text_input('Enter Your OPENAI API key',placeholder='API KEY') 
         if api_key_input:
-            os.environ["OPENAI_API_KEY"] = api_key_value
+            os.environ["OPENAI_API_KEY"] = api_key_input
 
 
         st.subheader("Your documents")
