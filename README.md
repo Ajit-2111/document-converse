@@ -13,6 +13,12 @@ The application provides the following functionality:
 - The text chunks are converted into vectors using OpenAI's embeddings.
 - Users can ask questions, and the application provides responses based on the content of the documents.
 
+## Credit
+
+This project was inspired by a YouTube video tutorial created by **[Alejandro AO - Software & Ai](https://www.youtube.com/@alejandro_ao)**. I have modified and extended the original project to suit my requirements and added additional features.
+
+
+
 ## How It Works
 
 1. Users upload documents (PDF, TXT, DOC).
