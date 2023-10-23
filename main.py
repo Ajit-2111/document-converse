@@ -9,15 +9,21 @@ from langchain.chat_models import ChatOpenAI
 from langchain.memory import ConversationBufferMemory
 from langchain.chains import ConversationalRetrievalChain
 import time
+import docx2txt
 import openai
-def get_document_text(pdf_docs):
+def get_document_text(uploaded_docs):
     text = ""
-    for pdf in pdf_docs:
-        pdf_reader = PdfReader(pdf)
-        for page in pdf_reader.pages:
-            text += page.extract_text()
+    for document in uploaded_docs:
+        if document.type == 'application/pdf':
+            pdf_reader = PdfReader(document)
+            for page in pdf_reader.pages:
+                text += page.extract_text()
+        elif document.type == "text/plain":
+            text += document.read().decode()
+        elif document.type in ['application/msword',
+                               'application/vnd.openxmlformats-officedocument.wordprocessingml.document']:
+            text += docx2txt.process(document)
     return text
-
 
 def get_text_chunks(text):
     text_splitter = CharacterTextSplitter(
@@ -101,7 +107,7 @@ def main():
         handle_userinput(user_question)
 
     with st.sidebar:
-        api_key_input = st.text_input('Enter Your OPENAI API key',placeholder='API KEY') 
+        api_key_input = st.text_input('Enter Your OPENAI API key',placeholder='API KEY')
         if api_key_input:
             os.environ["OPENAI_API_KEY"] = api_key_input
 
