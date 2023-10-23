@@ -67,7 +67,7 @@ streamlit run app.py
 
 To run this application, ensure that your system meets the following specifications:
 
--   Python 3.6+
+-   Python 3.8+
 -   Adequate RAM for processing large documents
 -   Internet connectivity to access OpenAI services
 
