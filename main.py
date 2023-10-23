@@ -114,7 +114,7 @@ def main():
 
         st.subheader("Your documents")
         user_docs = st.file_uploader(
-            "Upload your PDFs here and click on 'Process'", accept_multiple_files=True)
+            "Upload your PDFs here and click on 'Process'", accept_multiple_files=True,type=["pdf","txt","msword"])
         if st.button("Process"):
             with st.spinner("Processing"):
                 # get pdf text
