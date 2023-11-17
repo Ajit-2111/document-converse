@@ -58,7 +58,7 @@ pip install -r requirements.txt
 
  4. ******Run the Application****:**
  ```python
-streamlit run app.py
+streamlit run main.py
 ```
  5. **Access the application in your web browser at **`http://localhost:8501`**.**
 
@@ -67,7 +67,7 @@ streamlit run app.py
 
 To run this application, ensure that your system meets the following specifications:
 
--   Python 3.8+
+-   Python 3.9+
 -   Adequate RAM for processing large documents
 -   Internet connectivity to access OpenAI services
 
