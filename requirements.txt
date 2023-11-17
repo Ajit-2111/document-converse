@@ -3,5 +3,5 @@ PyPDF2
 streamlit
 openai
 docx2txt
-
+tiktoken
 
